@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-export default function AlertCard(props){
+export default function AlertCard({alert}){
     return (
         <div className="card">
-            <p>{props.alert.message}</p>
-            <p>{props.alert.date}</p>
+            <p>{alert.message}</p>
+            <p>{alert.date}</p>
         </div>
         
     )

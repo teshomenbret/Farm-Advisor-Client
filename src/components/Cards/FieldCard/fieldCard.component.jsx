@@ -1,11 +1,10 @@
 import React from 'react'
 
 
-export default function FieldCard(props){
+export default function FieldCard({field}){
     return (
         <div>
-            <p>{props.field.name}</p>
-            {/* <p>{props.fields.date}</p> */}
+            <p>{field.name}</p>
         </div>
         
     )

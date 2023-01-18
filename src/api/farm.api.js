@@ -12,5 +12,20 @@ const farms = async () => {
   }
 }
 
+const faqsList = async () => {
+  try {
+      let response = await fetch('FAQ.json',{
+              headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              }
+            })
+      return await response.json()
+  } catch(err) {
+      console.log(err)
+  }
+}
 
-export {farms}
+
+
+export {farms, faqsList}
