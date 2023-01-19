@@ -6,6 +6,10 @@ import FarmLanding from './pages/Landing/FarmLanding/farmLanding.pages';
 import FieldLanding from './pages/Landing/FieldLanding/fieldLanding.pages';
 import SensorLanding from './pages/Landing/SensorLanding/sensorLanding.pages'
 import Help from './pages/Help/help.pages'
+import FarmForm from './pages/Form/FarmForm/farmForm.pages';
+import FieldForm from './pages/Form/FieldForm/fieldForm.component';
+import SensorForm from './pages/Form/SensorForm/sensorForm.component';
+import SignupForm from './pages/Form/SignupForm/signupForm.pages';
 
 function App() {
   return (
@@ -16,7 +20,11 @@ function App() {
       {/* <FarmLanding/> */}
       {/* <FieldLanding/> */}
       {/* <SensorLanding/> */}
-      <Help/>
+      {/* <Help/> */}
+      {/* <FarmForm/> */}
+      {/* <FieldForm/> */}
+      {/* <SensorForm/> */}
+      <SignupForm/>
     </div>
   );
 }
