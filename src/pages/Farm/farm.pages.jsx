@@ -6,8 +6,14 @@ import add from '../../asset/add.svg'
 import farm_page from '../../asset/farm-page.svg'
 import FarmListbox from '../../components/Listbox/listbox.component'
 import Drop from '../../components/Drop/grop.component'
+import ResetGDDForm from '../Form/FarmForm/farmForm.pages'
 
 export default function  Farm(){
+    const [showResetGDDForm, setShowResetGDDForm] = useState(false);
+    const toggleShowResetGDDForm = ()=> { 
+        setShowResetGDDForm(!showResetGDDForm)
+    }
+
     const [farm,setData]=useState();
     const [selectedFarm, setSelectedFarm] = useState()
     const clicked  = () => { 
@@ -29,6 +35,7 @@ export default function  Farm(){
         })
       },[])
     return(
+        <>
         <div className='bg-gray-50 bg-g lg:mx-80 px-6'>
             <div className='flex justify-between'>
 
@@ -53,7 +60,7 @@ export default function  Farm(){
 
             <div className='flex justify-between mt-6'>
                 <h1 className='font-bold'>Fields</h1>
-                <img  src={add}></img>
+                <button onClick={toggleShowResetGDDForm}><img  src={add}></img></button>
             </div>
 
             {   selectedFarm&&selectedFarm.fields.map((field,index ) =>( 
@@ -63,6 +70,9 @@ export default function  Farm(){
                     ))
             }
             </div>
+            {
+          showResetGDDForm ? (<ResetGDDForm toggleShowResetGDDForm = {toggleShowResetGDDForm}/>) : null}
+            </>
     )
     
 }

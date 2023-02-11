@@ -41,18 +41,30 @@ export default function ResetGDDForm({toggleShowResetGDDForm}) {
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
 
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full min-w-[450px] bg-gray-50 outline-none focus:outline-none">
+              <div className="border-0 h-fit rounded-lg shadow-lg relative flex flex-col w-full lg:min-w-[450px] sm:mx-4 sm:min-w-full bg-gray-50 outline-none focus:outline-none">
+                    <div className='flex justify-between my-4 px-3'>
+                      <p className="font-['Roboto'] font-medium text-2xl not-italic leading-7">New Farm</p>
+                      <button >X</button>
+                    </div>
                     <div>
                         <form>
-                            <InputField label = "Farm Name" onChange={handleNameChange} name='name'     value={name}     required/>
+                          <div className='mb-4 px-3'>
+                            <InputField label = "Farm Name" onChange={handleNameChange} name='name' value={name} required/>
+                          </div>
+                          <div className='mb-4 px-3'>
                             <InputField label = "Location"  onChange={handleLocationChange} name='location' value={location} required/>    
-                            <Button onClick={handleSubmit} text = "create new farm"/>
+                          </div>
+                          <div className='pb-3 mx-0 mt-36  px-3 border shadow-md'>
+                            <Button onClick={handleSubmit} text = "Create New Farm"/>
+                          </div>
                         </form>
                     </div>
               </div>
+              
             </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          
           {navigate&& (<Navigate to="/fieldLanding" />)}
     </>
   );

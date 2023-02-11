@@ -11,7 +11,12 @@ export default function NavBar() {
             </h2>
           </a>
         </div>
-        <div className="hidden space-x-4 md:inline-block">
+        <div className="hidden space-x-4 md:inline-block text-white">
+          <div>
+          <p>+</p>
+          <p>h</p>
+
+          </div>
 
         </div>
       </div>

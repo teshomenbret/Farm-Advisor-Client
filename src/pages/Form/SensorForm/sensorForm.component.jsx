@@ -3,7 +3,9 @@ import { Navigate } from 'react-router';
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
 import {create} from '../../../api/farm.api'
-import ddd from  '../../../asset/alert.svg'
+import sensorLocation from  '../../../asset/sensorLocation.svg'
+import gddField from  '../../../asset/gddField.svg'
+import qr_code_scanner from  '../../../asset/qr_code_scanner.svg'
 
 
 export default function SensorForm(){
@@ -55,62 +57,89 @@ export default function SensorForm(){
         
     return (
         <>
-        <div className='bg-gray-50 bg-g lg:mx-80 px-6'>
-            <div className='flex justify-between mb-5'>
-                <p>New Senseor</p>
-                <p>x</p>
-            </div>
+       <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+
+              {/*content*/}
+              <div className="border-0 h-fit rounded-lg shadow-lg relative flex flex-col w-full lg:min-w-[450px] sm:mx-4 sm:min-w-full bg-gray-50 outline-none focus:outline-none">
+                    <div className='flex justify-between my-4 px-3'>
+                      <p className="font-['Roboto'] font-medium text-2xl not-italic leading-7">New Sensor</p>
+                      <button >X</button>
+                    </div>
             <form>
-                <InputField 
-                    label = "Serial Number" 
-                    onChange={handleSerialNumberChange} 
-                    name='serial_number' 
-                    icon={ddd} 
-                    value={serial_number} 
-                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    required
-                />
+                    <div className='mb-4 px-3'>
+                            <InputField 
+                            label = "Serial Number" 
+                            onChange={handleSerialNumberChange} 
+                            name='serial_number' 
+                            icon={qr_code_scanner} 
+                            value={serial_number} 
+                            className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            required
+                        />                        
+                    </div>
+                    
+                    <div className='mb-4 px-3'>
+                        <InputField 
+                        label = "Sensor Location"  
+                        onChange={handleLocationChange} 
+                        name='location' 
+                        value={location} 
+                        icon = {sensorLocation}
+                        className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        required
+                    />                      
+                    </div>
+                
 
-                <InputField 
-                    label = "Sensor Location"  
-                    onChange={handleLocationChange} 
-                    name='location' 
-                    value={location} 
-                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    required
-                />
-
+                
+                    <div className='mb-4 px-3'>
                 <InputField 
                     label = "Default GGD"  
                     onChange={handleGDDChange} 
                     name='GDD' 
                     value={GDD}
+                    icon ={gddField}
                     className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" 
                     required
                 />
+                </div>
 
+
+            <div className='mb-4 px-3'>
                 <InputField 
                     label = "Sensor Installation Date"  
                     onChange={handleInstallationDateChange} 
                     name='installation_date' 
+                    type ='date'
                     value={installation_date}
                     className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" 
                     required
                 />
+                </div>
 
+                <div className='mb-4 px-3'>
                 <InputField 
                     label = "Last Cutting Date At This Field"  
                     onChange={handleLastCuttingDateAtFieldChange} 
                     name='last_cutting_date_at_Field' 
+                    type ='date'
                     value={last_cutting_date_at_Field} 
                     className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     required
                 />
-
+                </div>
+                <div className='pb-3 mx-0 mt-3  px-3 border shadow-md'>
                 <Button onClick={handleSubmit} text = "Add new Sensor"/>
+                </div>
 
             </form>
-        </div>
+            </div>
+          </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         {navigate&& (<Navigate to="/farm" />)}
         </>
     )

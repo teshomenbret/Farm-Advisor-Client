@@ -15,7 +15,7 @@ export default function  (){
                 <p>field name</p>
             </div>
             <div>
-                <Landing image={field_image} btn_action={addSensor} btn_text="Add my first field" title = "Add a field" paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id pellentesque nulla. Donec porta pretium risus vitae ultrices. "/>
+                <Landing image={field_image} btn_action={addSensor} btn_text="ADD my first SENSOR" title = "Add a field" paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id pellentesque nulla. Donec porta pretium risus vitae ultrices. "/>
             </div>
             {/* <div>
                 <Button onClick={addField} text = "ADD my first FIELD"/>
