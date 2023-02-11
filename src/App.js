@@ -10,24 +10,29 @@ import FarmForm from './pages/Form/FarmForm/farmForm.pages';
 import FieldForm from './pages/Form/FieldForm/fieldForm.component';
 import SensorForm from './pages/Form/SensorForm/sensorForm.component';
 import SignupForm from './pages/Form/SignupForm/signupForm.pages';
-import Modal from './pages/Form/ResetGDD/tttt'
+
+import { BrowserRouter,Route ,Routes} from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar.component';
 
 function App() {
   return (
     <div className="App">
-      {/* <Farm/> */}
-      <Field/>
-       {/* <SensorForm/> */}
-      {/* <SignupLanding/> */}
-      {/* <FarmLanding/> */}
-      {/* <FieldLanding/>
-      <SensorLanding/>
-      <Help/>
-      <FarmForm/>
-      <FieldForm/> */}
-     
-      {/* <SignupForm/> */}
-      {/* <Modal/> */}
+      <BrowserRouter>
+	  		<NavBar/>
+			<Routes>
+				<Route path='/' element={<FarmLanding/>} />
+				<Route path='/signUp' element={<SignupLanding/>}/>
+				<Route path='/farm' element={<Farm/>} />
+				<Route path='/field' element={<Field/>} />
+				<Route path='/fieldLanding' element={<FieldLanding/>} />
+				<Route path='/sensorLanding' element={<SensorLanding/>} />
+				<Route path='/help' element={<Help/>} />
+				<Route path='/farmForm' element={<FarmForm/>} />
+				<Route path='/fieldForm' element={<FieldForm/>}/>
+				<Route path='/sensorForm' element={<SensorForm/>}/>
+				<Route path='signupForm' element={<SignupForm/>} />
+			</Routes>
+      </BrowserRouter>
     </div>
   );
 }

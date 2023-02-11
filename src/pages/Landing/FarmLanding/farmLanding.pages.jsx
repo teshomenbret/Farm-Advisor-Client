@@ -10,11 +10,11 @@ export default function  FarmLanding(){
     return(
         <div>
             <div>
-                <Landing image={farm_image} title = "Welcome to Agino" paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id pellentesque nulla. Donec porta pretium risus vitae ultrices. "/>
+                <Landing image={farm_image} btn_action={farm} btn_text= "create my first farm" title = "Welcome to Agino" paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id pellentesque nulla. Donec porta pretium risus vitae ultrices. "/>
             </div>
-            <div>
+            {/* <div>
                 <Button onClick={farm} text = "create my first farm"/>
-            </div>
+            </div> */}
         </div>
     )
     
