@@ -62,7 +62,7 @@ export default function BarChart() {
               display: false,
               scaleLabel: {
                 display: true,
-                labelString: "Week",
+                labelString: "Days",
               },
               gridLines: {
                 borderDash: [2],

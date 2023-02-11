@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Navigate } from 'react-router';
 import Landing from '../../../components/Landing/landing.component'
 // import Button from '../../../components/Button/button.componet'
 import field_image from '../../../asset/field.svg'
 
 export default function  FieldLanding(){
-    const  addField= ()=> {
-        console.log("creat field")
+    const [navigate,setNavigate]=useState(false);
+    const  addField = ()=> {
+        setNavigate(!navigate)
     }
     return(
         <div>
@@ -18,6 +20,7 @@ export default function  FieldLanding(){
             {/* <div>
                 <Button onClick={addField} text = "ADD my first FIELD"/>
             </div> */}
+            {navigate&& (<Navigate to="/fieldForm" />)}  
         </div>
     )
     

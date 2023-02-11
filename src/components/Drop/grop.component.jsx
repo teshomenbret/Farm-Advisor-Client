@@ -7,7 +7,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Drop({choice, showModal}) {
+export default function Drop({choice}) {
   return (
                 <Menu as="div" className="relative ml-3">
                   <div>
@@ -32,12 +32,12 @@ export default function Drop({choice, showModal}) {
                      {   choice&&choice.map((cho,index ) =>( 
                                           <Menu.Item key={index}>
                                             {({ active}) => (
-                                              <a
-                                                href="#"
+                                              <p
+                                                onClick={cho.onClick}
                                                 className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                               >
-                                                {cho}
-                                              </a>
+                                                {cho.name}
+                                              </p>
                                             )}
                                           </Menu.Item>
 

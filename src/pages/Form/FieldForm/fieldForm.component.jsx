@@ -2,9 +2,16 @@ import React, {useState} from 'react'
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
 import {create} from '../../../api/farm.api'
+import { Navigate } from 'react-router';
 
 
 export default function FieldForm(){
+
+    const [navigate,setNavigate]=useState(false);
+    const  toogleNavigate= ()=> {
+        setNavigate(!navigate)
+    }
+
     const [name,setName]=useState("");
     const [altitude,setAltitude]=useState("");
    
@@ -25,9 +32,11 @@ export default function FieldForm(){
         create(field).then((data) => {
             console.log(data)
         })
+        toogleNavigate()
     }
         
     return (
+        <>
         <div>
             <form>
                 <InputField label = "Farm Name" onChange={handleNameChange} name='name'     value={name}     required/>
@@ -35,5 +44,8 @@ export default function FieldForm(){
                 <Button onClick={handleSubmit} text = "create new field"/>
             </form>
         </div>
+        {navigate&& (<Navigate to="/sensorLanding" />)}
+        </>
+        
     )
 }

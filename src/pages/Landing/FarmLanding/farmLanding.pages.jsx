@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Landing from '../../../components/Landing/landing.component'
 import Button from '../../../components/Button/button.componet'
 import farm_image from '../../../asset/farm.svg'
+import { Navigate } from 'react-router';
 
 export default function  FarmLanding(){
+    const [navigate,setNavigate]=useState(false);
     const  farm= ()=> {
-        console.log("creat farm")
+        setNavigate(!navigate)
     }
     return(
         <div>
@@ -15,6 +17,7 @@ export default function  FarmLanding(){
             {/* <div>
                 <Button onClick={farm} text = "create my first farm"/>
             </div> */}
+             {navigate&& (<Navigate to="/farmForm" />)}  
         </div>
     )
     

@@ -14,6 +14,9 @@ import SignupForm from './pages/Form/SignupForm/signupForm.pages';
 import { BrowserRouter,Route ,Routes} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar.component';
 
+import SimpleMap from './gogglemap'
+
+
 function App() {
   return (
     <div className="App">
@@ -31,6 +34,7 @@ function App() {
 				<Route path='/fieldForm' element={<FieldForm/>}/>
 				<Route path='/sensorForm' element={<SensorForm/>}/>
 				<Route path='signupForm' element={<SignupForm/>} />
+				<Route path='map' element={<SimpleMap/>} />
 			</Routes>
       </BrowserRouter>
     </div>
@@ -38,3 +42,5 @@ function App() {
 }
 
 export default App;
+
+// AIzaSyBXEUMJ5JljujyZ5lEz8dlvjbG6SzFbum0
