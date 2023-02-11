@@ -8,6 +8,7 @@ import landscape from "../../asset/landscape.svg"
 import NavBar from '../../components/NavBar/NavBar.component';
 import LineChart from '../../components/Cards/LineChart/CardLineChart.component';
 import ChartLineChart from '../../components/Cards/LineChart/CardLineChart.component'
+import BarChart from '../../components/BarChart/BarChart.component';
 
 export default function  Field(){
     // const [farm,setData]=useState();
@@ -28,6 +29,9 @@ export default function  Field(){
             <FieldInfoCard/>
             <div className='mt-3'>
             <ChartLineChart />
+            </div>
+            <div>
+                <BarChart />
             </div>
         </div>
         </>
