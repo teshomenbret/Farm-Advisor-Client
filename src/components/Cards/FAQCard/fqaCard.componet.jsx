@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
 export default function FAQCard({faq}){
@@ -12,7 +13,7 @@ export default function FAQCard({faq}){
         <div className='border-l-rose-50 rounded-lg'>
             <div className='flex justify-between mx-3 bg-white p-3'>
                 <p>{faq.question}</p>
-                <button onClick={toggleShowAnswer}>x</button>
+                <button onClick={toggleShowAnswer}><KeyboardArrowDownIcon/></button>
             </div> 
             <div className='mx-3 bg-white mb-2 pt-2 px-4'>
                 {

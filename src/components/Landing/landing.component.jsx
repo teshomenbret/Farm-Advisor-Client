@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Landing({image, title,paragraph, btn_text, btn_action}){
     return (
-            <div className="md:container md:mx-auto bg-slate-50 h-screen">
+            <div className='bg-gray-50 bg-g lg:mx-60 px-6 h-screen'>
             <div className = "h-[36rem] flex flex-col justify-center items-center ">
                 <img className = "w-28 h-28 rounded-full" src={image} alt= ""/>
                 <h1 className ="Roboto text-[34px] pt-5 font-bold text-[#20382F]">{title}</h1>

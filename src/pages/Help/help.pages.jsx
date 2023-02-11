@@ -8,7 +8,7 @@ export default function  Help(){
         faqsList().then(faq =>setData(faq))
       },[])
     return(
-        <div className='bg-gray-50 lg:mx-96 sm:mx-80 md:mx-10'>
+        <div className='bg-gray-50 lg:mx-60 sm:mx-80 md:mx-10'>
 
             {   faqs&&faqs.map((faq,index ) =>( 
                     <div key={index} >
