@@ -7,7 +7,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Drop({choice, showModal}) {
+export default function Drop({choice}) {
   return (
                 <Menu as="div" className="relative ml-3">
                   <div>

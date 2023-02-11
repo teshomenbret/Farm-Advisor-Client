@@ -15,13 +15,13 @@ export default function SensorCard({sensor}){
   const [showDelete, setShowDelete] = useState(false);
 
 
-  const toggleShowResetGDDForm = event => { 
+  const toggleShowResetGDDForm = ()=> { 
       setShowResetGDDForm(!showResetGDDForm)
   }
-  const toggleShowEditSensor = event => { 
+  const toggleShowEditSensor = () => { 
       setShowEditSensor(!showEditSensor)
   }
-  const toggleShowDelete = event => { 
+  const toggleShowDelete = () => { 
       setShowDelete(!showDelete)
   }
     const choice = [  {

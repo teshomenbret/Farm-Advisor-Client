@@ -23,7 +23,14 @@ export default function  Field(){
             <p className='mx-8'>Last sensor reset: 04/03/22 (auto reset)</p>
            
             <div>
-                <p className='mx-8 font-bold'>Sensors</p>
+                <div className='flex justify-between '>
+                    <p className='mx-8 font-bold w-2/3'>Sensors</p>
+                    <div className='flex justify-evenly'>
+                        <p>+</p>
+                        <p>x</p>
+                    </div>
+                </div>
+               
                 <div className='flex justify-start flex-wrap mt-3'>
                     {   farm&&farm[0].fields[0].sensors.map((sensor,index ) =>( 
                         <div key={index}>

@@ -1,10 +1,16 @@
 import React, {useState} from 'react'
+import { Navigate } from 'react-router';
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
 import {create} from '../../../api/farm.api'
 import calander from  '../../../asset/calander.svg'
 
 export default function ResetGDDForm({toggleShowResetGDDForm}) {
+  const [navigate,setNavigate]=useState(false);
+  const  toggleNavigate = ()=> {
+      setNavigate(!navigate)
+  }
+
     const [name,setName]=useState("");
     const [location,setLocation]=useState("");
     const handleNameChange = event => { 
@@ -24,6 +30,7 @@ export default function ResetGDDForm({toggleShowResetGDDForm}) {
         create(farm).then((data) => {
             console.log(data)
         })
+        toggleNavigate()
     }
   
   return (
@@ -46,6 +53,7 @@ export default function ResetGDDForm({toggleShowResetGDDForm}) {
             </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          {navigate&& (<Navigate to="/fieldLanding" />)}
     </>
   );
 }

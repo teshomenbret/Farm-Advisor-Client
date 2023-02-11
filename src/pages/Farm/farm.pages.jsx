@@ -10,8 +10,18 @@ import Drop from '../../components/Drop/grop.component'
 export default function  Farm(){
     const [farm,setData]=useState();
     const [selectedFarm, setSelectedFarm] = useState()
-    const choice = ["Edit Farm","Delete Farm"]
-    const [showModal, setShowModal] = React.useState(false);
+    const clicked  = () => { 
+        console.log("clicked")
+    }
+    const choice = [  {
+        name:"Edit Farm",
+        onClick:clicked
+    },
+    {
+        name:"Delete Farm",
+        onClick:clicked
+    }
+  ]
     useEffect(()=>{
         farms().then(farm =>{
             setData(farm)
@@ -28,7 +38,7 @@ export default function  Farm(){
                     (farm&&selectedFarm)&&<FarmListbox className = "bg-white" farm = {farm} selectedFarm = {selectedFarm} setSelectedFarm = {setSelectedFarm} />
                     } 
                 </div>
-                <Drop showModal = {showModal} choice = {choice}/>
+                <Drop choice = {choice}/>
             </div>
 
             

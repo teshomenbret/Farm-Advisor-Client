@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Navigate } from 'react-router';
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
 import {create} from '../../../api/farm.api'
@@ -6,6 +7,10 @@ import ddd from  '../../../asset/alert.svg'
 
 
 export default function SensorForm(){
+    const [navigate,setNavigate]=useState(false);
+    const  toogleNavigate= ()=> {
+        setNavigate(!navigate)
+    }
     const [serial_number,setSerialNumber]=useState("");
     const [location,setLocation]=useState("");
     const [GDD,setGDD]=useState("");
@@ -45,9 +50,11 @@ export default function SensorForm(){
         create(sensor).then((data) => {
             console.log(data)
         })
+        toogleNavigate()
     }
         
     return (
+        <>
         <div className='bg-gray-50 bg-g lg:mx-80 px-6'>
             <div className='flex justify-between mb-5'>
                 <p>New Senseor</p>
@@ -104,5 +111,7 @@ export default function SensorForm(){
 
             </form>
         </div>
+        {navigate&& (<Navigate to="/farm" />)}
+        </>
     )
 }
