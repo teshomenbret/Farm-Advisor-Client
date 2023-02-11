@@ -11,8 +11,7 @@ export default function InputField({onChange,label, name, value,icon, ...otherPr
                 value = {value}
                 onChange = {onChange}
                 {...otherPropes}
-                className="mt-2 py-3 block w-full bg-white focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              />
+                class=" text-gray-900 bg-white  focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
               {
               icon&& <div className="absolute inset-y-0 right-0 flex items-center">
                       <img src={icon} className="rounded-md h-3/4 border-transparent bg-transparent py-0 pl-1 pr-4"/>

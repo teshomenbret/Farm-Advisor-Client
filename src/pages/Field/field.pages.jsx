@@ -9,6 +9,7 @@ import landscape from "../../asset/landscape.svg"
 export default function  Field(){
     const [farm,setData]=useState();
 
+
     useEffect(()=>{
         farms().then(farm =>setData(farm))
       },[])
