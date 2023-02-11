@@ -1,11 +1,12 @@
 import React from 'react'
 
 
+
 export default function FieldInfoCard(props){
     return (
-        <div>
+        <div className=' mx-4 flex h-22 py-5 bg-white justify-evenly rounded'>
             <div>
-                <p>367</p>
+                <p className='font-medium'>367</p>
                 <p>Current GDD</p>
             </div>
             <div>

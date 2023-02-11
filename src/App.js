@@ -10,21 +10,24 @@ import FarmForm from './pages/Form/FarmForm/farmForm.pages';
 import FieldForm from './pages/Form/FieldForm/fieldForm.component';
 import SensorForm from './pages/Form/SensorForm/sensorForm.component';
 import SignupForm from './pages/Form/SignupForm/signupForm.pages';
+import Modal from './pages/Form/ResetGDD/tttt'
 
 function App() {
   return (
     <div className="App">
       {/* <Farm/> */}
-      {/* <Field/> */}
+      <Field/>
+       {/* <SensorForm/> */}
       {/* <SignupLanding/> */}
       {/* <FarmLanding/> */}
-      {/* <FieldLanding/> */}
-      {/* <SensorLanding/> */}
-      {/* <Help/> */}
-      {/* <FarmForm/> */}
-      {/* <FieldForm/> */}
-      {/* <SensorForm/> */}
-      <SignupForm/>
+      {/* <FieldLanding/>
+      <SensorLanding/>
+      <Help/>
+      <FarmForm/>
+      <FieldForm/> */}
+     
+      {/* <SignupForm/> */}
+      {/* <Modal/> */}
     </div>
   );
 }
