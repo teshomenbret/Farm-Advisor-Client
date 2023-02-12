@@ -12,10 +12,11 @@ export default function  Profile(){
         console.log('Terms and Conditions')
     }
     return(
-        <div className='bg-gray-50 lg:mx-60 sm:mx-80 md:mx-10 h-screen'>
+        <div>
             <Header/>
+            <div className='bg-gray-50 lg:mx-60 sm:mx-80 md:mx-10 h-screen'>
             <div>
-                <p className='mx-3 mt-3'>Phone</p>
+                <p className='mx-3 pt-2'>Phone</p>
                 <div className='mx-3 bg-white p-2 mb-5'>
                     <p>+2519675438970</p>
                 </div> 
@@ -24,7 +25,9 @@ export default function  Profile(){
                     <button><ArrowForwardIosIcon/></button>
                 </div>
             </div>
+            </div>
         </div>
+        
     )
     
 }

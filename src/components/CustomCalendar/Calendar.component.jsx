@@ -1,36 +1,30 @@
-import { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import './Calendar.css';
- 
-function CustomCalendar() {
-  const [date, setDate] = useState(new Date());
- 
-  return (
-    <div>
-      <p>Period</p>
-      <div className='calendar-container'>
-        <Calendar
-          onChange={setDate}
-          value={date}
-          selectRange={true}
-        />
-      </div>
-      {date.length > 0 ? (
-        <p className='text-center'>
-          <span className='bold'>Start:</span>{' '}
-          {date[0].toDateString()}
-          &nbsp;|&nbsp;
-          <span className='bold'>End:</span> {date[1].toDateString()}
-        </p>
-      ) : (
-        <p className='text-center'>
-          <span className='bold'>Default selected date:</span>{' '}
-          {date.toDateString()}
-        </p>
-      )}
-    </div>
-  );
-}
- 
+import React, {useState} from "react"; 
+import Datepicker from "react-tailwindcss-datepicker"; 
+
+const CustomCalendar = () => { 
+
+const [value, setValue] = useState({ 
+
+          startDate: null,
+          endDate: null 
+        }); 
+
+      const handleValueChange = (newValue) => {
+      console.log("newValue:", newValue); 
+      setValue(newValue); 
+
+      } 
+
+    return (
+              <Datepicker 
+                    primaryColor={'teal'}
+                    value={value} 
+                    onChange={handleValueChange} 
+                    showShortcuts={true} 
+              /> 
+
+        );
+}; 
+
+
 export default CustomCalendar;
