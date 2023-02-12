@@ -22,7 +22,7 @@ export default function  Profile(){
                 </div> 
                 <div className='flex justify-between mx-3 bg-white p-3' onClick={showTermsandConditions}>
                     <p>Terms and Conditions</p>
-                    <button><ArrowForwardIosIcon/></button>
+                    <button><a href='/termsandconditions'><ArrowForwardIosIcon/></a></button>
                 </div>
             </div>
             </div>
