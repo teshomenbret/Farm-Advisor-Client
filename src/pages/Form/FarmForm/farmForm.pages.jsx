@@ -5,7 +5,7 @@ import Button from '../../../components/Button/button.componet'
 import {create} from '../../../api/farm.api'
 import calander from  '../../../asset/calander.svg'
 
-export default function ResetGDDForm({toggleShowResetGDDForm}) {
+export default function FarmForm({setClose}) {
   const [navigate,setNavigate]=useState(false);
   const  toggleNavigate = ()=> {
       setNavigate(!navigate)
@@ -30,7 +30,7 @@ export default function ResetGDDForm({toggleShowResetGDDForm}) {
         create(farm).then((data) => {
             console.log(data)
         })
-        toggleNavigate()
+        setClose?setClose(false):toggleNavigate()
     }
   
   return (

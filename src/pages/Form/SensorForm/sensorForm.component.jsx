@@ -8,7 +8,7 @@ import gddField from  '../../../asset/gddField.svg'
 import qr_code_scanner from  '../../../asset/qr_code_scanner.svg'
 
 
-export default function SensorForm(){
+export default function SensorForm({setClose}){
     const [navigate,setNavigate]=useState(false);
     const  toogleNavigate= ()=> {
         setNavigate(!navigate)
@@ -52,7 +52,8 @@ export default function SensorForm(){
         create(sensor).then((data) => {
             console.log(data)
         })
-        toogleNavigate()
+        setClose?setClose(false):toogleNavigate()
+        
     }
         
     return (
@@ -61,7 +62,7 @@ export default function SensorForm(){
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-
+                
               {/*content*/}
               <div className="border-0 h-fit rounded-lg shadow-lg relative flex flex-col w-full lg:min-w-[450px] sm:mx-4 sm:min-w-full bg-gray-50 outline-none focus:outline-none">
                     <div className='flex justify-between my-4 px-3'>
@@ -140,6 +141,7 @@ export default function SensorForm(){
           </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+
         {navigate&& (<Navigate to="/farm" />)}
         </>
     )

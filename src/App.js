@@ -34,7 +34,7 @@ function App() {
 				<Route path='/fieldForm' element={<FieldForm/>}/>
 				<Route path='/sensorForm' element={<SensorForm/>}/>
 				<Route path='signupForm' element={<SignupForm/>} />
-				<Route path='map' element={<SimpleMap/>} />
+				<Route path='/map' element={<SimpleMap/>} />
 			</Routes>
       </BrowserRouter>
     </div>

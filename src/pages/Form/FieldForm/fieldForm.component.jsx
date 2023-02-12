@@ -5,7 +5,7 @@ import {create} from '../../../api/farm.api'
 import { Navigate } from 'react-router';
 
 
-export default function FieldForm(){
+export default function FieldForm({setClose}){
 
     const [navigate,setNavigate]=useState(false);
     const  toogleNavigate= ()=> {
@@ -32,7 +32,7 @@ export default function FieldForm(){
         create(field).then((data) => {
             console.log(data)
         })
-        toogleNavigate()
+        setClose?setClose(false):toogleNavigate()
     }
         
     return (

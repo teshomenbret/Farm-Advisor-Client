@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { Navigate } from 'react-router';
 import {farms} from '../../api/farm.api'
 import TerrainIcon from '@mui/icons-material/Terrain'
 import FieldInfoCard from '../../components/Cards/FieldInfoCard/fieldInfo.component';
@@ -20,6 +19,11 @@ import Header from '../../components/NavBar/Header.component';
 export default function  Field(){
     const [sensor,setNavigate]=useState(false);
     const [showSensor,setShowSensor]=useState(false);
+    
+    const [resetGDDonallsensors, setResetGDDonallsensors] = useState(false);
+    const [editField, setEditField] = useState(false);
+    const [deleteField, setDeleteField] = useState(false);
+  
     const  addSensor = ()=> {
         setNavigate(!sensor)
     }
@@ -27,24 +31,40 @@ export default function  Field(){
         setShowSensor(!showSensor)
     }
 
+    const choiceFarm = [  {
+        name:"Reset GDD on all sensors",
+        onClick:()=> { 
+            console.log(resetGDDonallsensors)
+          setResetGDDonallsensors(!resetGDDonallsensors)
+          
+          }
+      },
+      {
+          name:"Edit Field",
+          onClick:()=>{
+            setEditField(!editField)
+          }
+      }, 
+      {
+          name:"Delete Field",
+          onClick:()=>{
+            setDeleteField(!deleteField)
+          }
+        }
+    ]
+
+
     const [farm,setData]=useState();
-
-
-    // useEffect(()=>{
-    //     farms().then(farm =>setData(farm))
-    //   },[])
+    useEffect(()=>{
+        farms().then(farm =>setData(farm))
+      },[])
     return(
-        // <div className='bg-gray-50 lg:mx-96 sm:mx-80 md:mx-10'>
-        //     <div className='flex justify-start mx-4 mb-4'>
-        //         <img src={landscape} alt="" />
-        //         <p className='ml-8'>{farm&&farm[0].fields[0].altitude+" above sea level"}</p>
-        //     </div>          
-        // <div>
+<>
 
-    <div>
-         <Header/>   
-        <div className='bg-gray-50 bg-g lg:mx-60 px-6'>
-            
+         <Header name={"Farm Name"} back ='/farm' choice={choiceFarm} />  
+          
+   
+        <div className='bg-gray-50 bg-g lg:mx-60 px-6 mt-0 pt-12'>
                 <div className="justify-between md:items-center md:flex mb-8 ">
                 <div className="flex items-center space-x-4">
                     <TerrainIcon />
@@ -54,13 +74,6 @@ export default function  Field(){
             <FieldInfoCard/>
             <p className='mx-8'>Last sensor reset: 04/03/22 (auto reset)</p>
             <div>
-                {/* <div className='flex justify-between w-full'>
-                    <p className='mx-8 font-bold'>Sensors</p>
-                    <div className='flex justify-between mx-4 w-8'>
-                    <AddIcon onClick={addSensor} />
-                    <KeyboardArrowDownIcon onClick={toggleShowSensor}/>
-                    </div>
-                </div> */}
                 <div className='flex justify-between '>
                     <p className='mx-8 font-bold w-2/3'>Sensors</p>
                     <div className='flex justify-evenly'>
@@ -94,23 +107,9 @@ export default function  Field(){
                 <BarChart/>
             </div>  
         </div>
-        </div>
+     
 
-    //     {/* kvhdfhvsdhvsd */}
-
-
-        
-    //     </div>
-    // </div> 
-
-    )
-    
-}
-
-
-
-
-{/* {sensor&&(<>
+        {sensor&&(<>
             <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
@@ -121,4 +120,23 @@ export default function  Field(){
             </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-          </>)} */}
+          </>)}
+
+
+
+        </>
+
+    )
+    
+}
+
+
+      // <div className='bg-gray-50 lg:mx-96 sm:mx-80 md:mx-10'>
+        //     <div className='flex justify-start mx-4 mb-4'>
+        //         <img src={landscape} alt="" />
+        //         <p className='ml-8'>{farm&&farm[0].fields[0].altitude+" above sea level"}</p>
+        //     </div>          
+        // <div>
+
+
+
