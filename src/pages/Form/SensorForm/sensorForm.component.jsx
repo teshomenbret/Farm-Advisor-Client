@@ -6,14 +6,10 @@ import {create} from '../../../api/farm.api'
 import sensorLocation from  '../../../asset/sensorLocation.svg'
 import gddField from  '../../../asset/gddField.svg'
 import qr_code_scanner from  '../../../asset/qr_code_scanner.svg'
-
-
-import CloseIcon from '@mui/icons-material/Close';
 import MapInputField from '../../../components/InputField/MapField/MapField.component';
 
 
 import CloseIcon from '@mui/icons-material/Close';
-import MapInputField from '../../../components/InputField/MapField/MapField.component';
 
 
 export default function SensorForm({setClose}){
