@@ -3,7 +3,8 @@ import { Navigate } from 'react-router';
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
 import {create} from '../../../api/farm.api'
-import calander from  '../../../asset/calander.svg'
+import MapInputField from '../../../components/InputField/MapField/MapField.component';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function ResetGDDForm({toggleShowResetGDDForm}) {
   const [navigate,setNavigate]=useState(false);
@@ -36,24 +37,25 @@ export default function ResetGDDForm({toggleShowResetGDDForm}) {
   return (
         <>
           <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="justify-center items-center flex overflow-x-hidden fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className="relative w-auto mx-auto max-w-3xl">
 
               {/*content*/}
               <div className="border-0 h-fit rounded-lg shadow-lg relative flex flex-col w-full lg:min-w-[450px] sm:mx-4 sm:min-w-full bg-gray-50 outline-none focus:outline-none">
                     <div className='flex justify-between my-4 px-3'>
                       <p className="font-['Roboto'] font-medium text-2xl not-italic leading-7">New Farm</p>
-                      <button >X</button>
+                      <button ><CloseIcon/></button>
                     </div>
                     <div>
                         <form>
                           <div className='mb-4 px-3'>
                             <InputField label = "Farm Name" onChange={handleNameChange} name='name' value={name} required/>
                           </div>
-                          <div className='mb-4 px-3'>
+                          {/* <div className='mb-4 px-3'>
                             <InputField label = "Location"  onChange={handleLocationChange} name='location' value={location} required/>    
-                          </div>
+                          </div> */}
+                          <div className='mb-4 px-3'><MapInputField/></div>
                           <div className='pb-3 mx-0 mt-36  px-3 border shadow-md'>
                             <Button onClick={handleSubmit} text = "Create New Farm"/>
                           </div>

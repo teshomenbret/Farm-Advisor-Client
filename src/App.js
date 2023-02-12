@@ -14,6 +14,7 @@ import Profile from './pages/Profile/Profile.pages';
 
 import { BrowserRouter,Route ,Routes} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar.component';
+import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions.pages';
 
 import SimpleMap from './gogglemap'
 
@@ -37,6 +38,7 @@ function App() {
 				<Route path='/sensorForm' element={<SensorForm/>}/>
 				<Route path='signupForm' element={<SignupForm/>} />
 				<Route path='map' element={<SimpleMap/>} />
+				<Route path='/termsandconditions' element={<TermsAndConditions/>} />
 			</Routes>
       </BrowserRouter>
     </div>

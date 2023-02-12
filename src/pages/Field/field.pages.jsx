@@ -27,7 +27,7 @@ export default function  Field(){
         setShowSensor(!showSensor)
     }
 
-    const [farm,setData]=useState();
+    const [farm,setData] = useState();
 
 
     // useEffect(()=>{
