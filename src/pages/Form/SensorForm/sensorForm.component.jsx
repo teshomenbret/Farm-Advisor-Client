@@ -8,6 +8,10 @@ import gddField from  '../../../asset/gddField.svg'
 import qr_code_scanner from  '../../../asset/qr_code_scanner.svg'
 
 
+import CloseIcon from '@mui/icons-material/Close';
+import MapInputField from '../../../components/InputField/MapField/MapField.component';
+
+
 export default function SensorForm(){
     const [navigate,setNavigate]=useState(false);
     const  toogleNavigate= ()=> {
@@ -58,17 +62,17 @@ export default function SensorForm(){
     return (
         <>
        <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="justify-center items-center flex overflow-x-hidden fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div className="relative w-auto mx-auto max-w-3xl">
 
               {/*content*/}
               <div className="border-0 h-fit rounded-lg shadow-lg relative flex flex-col w-full lg:min-w-[450px] sm:mx-4 sm:min-w-full bg-gray-50 outline-none focus:outline-none">
                     <div className='flex justify-between my-4 px-3'>
                       <p className="font-['Roboto'] font-medium text-2xl not-italic leading-7">New Sensor</p>
-                      <button >X</button>
+                      <button ><CloseIcon/></button>
                     </div>
-            <form>
+                <form>
                     <div className='mb-4 px-3'>
                             <InputField 
                             label = "Serial Number" 
@@ -82,21 +86,21 @@ export default function SensorForm(){
                     </div>
                     
                     <div className='mb-4 px-3'>
-                        <InputField 
+                        {/* <InputField 
                         label = "Sensor Location"  
                         onChange={handleLocationChange} 
                         name='location' 
                         value={location} 
                         icon = {sensorLocation}
                         className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        required
-                    />                      
+                        required /> */}
+                        <MapInputField />                      
                     </div>
                 
 
                 
-                    <div className='mb-4 px-3'>
-                <InputField 
+                <div className='mb-4 px-3'>
+                <InputField
                     label = "Default GGD"  
                     onChange={handleGDDChange} 
                     name='GDD' 

@@ -27,7 +27,7 @@ export default function  Field(){
         setShowSensor(!showSensor)
     }
 
-    const [farm,setData]=useState();
+    const [farm,setData] = useState();
 
 
     // useEffect(()=>{
@@ -42,13 +42,12 @@ export default function  Field(){
         // <div>
 
     <div>
-         <Header/>   
+        <Header/> 
         <div className='bg-gray-50 bg-g lg:mx-60 px-6'>
-            
                 <div className="justify-between md:items-center md:flex mb-8 ">
                 <div className="flex items-center space-x-4">
                     <TerrainIcon />
-                    <p className="text-gray-700 text-base ">127m above see level.</p>
+                    <p className="text-gray-700 text-base pt-2">127m above see level.</p>
                 </div>
                 </div>
             <FieldInfoCard/>
@@ -84,8 +83,8 @@ export default function  Field(){
                 }
                
             </div>
-            <div>
-                <CustomCalendar/>
+            <div className="w-64 h-14 pt-4">
+                <CustomCalendar />
             </div>
             <div>
                 <ChartLineChart/>

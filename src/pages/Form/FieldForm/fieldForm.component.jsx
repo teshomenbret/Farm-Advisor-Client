@@ -4,6 +4,7 @@ import Button from '../../../components/Button/button.componet'
 import {create} from '../../../api/farm.api'
 import { Navigate } from 'react-router';
 
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function FieldForm(){
 
@@ -46,7 +47,7 @@ export default function FieldForm(){
               <div className="border-0 h-fit rounded-lg shadow-lg relative flex flex-col w-full lg:min-w-[450px] sm:mx-4 sm:min-w-full bg-gray-50 outline-none focus:outline-none">
                     <div className='flex justify-between my-4 px-3'>
                       <p className="font-['Roboto'] font-medium text-2xl not-italic leading-7">New Field</p>
-                      <button >X</button>
+                      <button ><CloseIcon/></button>
                     </div>
                     <div>
                         <form>
