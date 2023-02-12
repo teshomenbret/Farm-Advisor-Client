@@ -1,43 +1,26 @@
-import React from "react";
-import GoogleMapReact from 'google-map-react';
+import React, { Component } from "react";
+import { render } from "react-dom";
 
-const AnyReactComponent = ({ text }) => (
-  <div style={{
-    color: 'white', 
-    background: 'grey',
-    padding: '15px 10px',
-    display: 'inline-flex',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '100%',
-    transform: 'translate(-50%, -50%)'
-  }}>
-    {text}
-  </div>
-);
+class SimpleMap extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
-class SimpleMap extends React.Component {
-  static defaultProps = {
-    center: {lat: 59.95, lng: 30.33},
-    zoom: 11
-  };
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+    });
+  }
 
   render() {
     return (
-       <GoogleMapReact
-       bootstrapURLKeys={'AIzaSyBXEUMJ5JljujyZ5lEz8dlvjbG6SzFbum0'}
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-      >
-        <AnyReactComponent 
-          lat={59.955413} 
-          lng={30.337844} 
-          text={'Kreyser Avrora'} 
-        />
-      </GoogleMapReact>
+      <div>
+        <h4>Using geolocation JavaScript API in React</h4>
+      </div>
     );
   }
 }
-
 export default SimpleMap
