@@ -54,10 +54,12 @@ export default function  Field(){
     ]
 
 
-    const [farm,setData]=useState();
-    useEffect(()=>{
-        farms().then(farm =>setData(farm))
-      },[])
+    const [farm,setData] = useState();
+
+
+    // useEffect(()=>{
+    //     farms().then(farm =>setData(farm))
+    //   },[])
     return(
 <>
 
@@ -68,7 +70,7 @@ export default function  Field(){
                 <div className="justify-between md:items-center md:flex mb-8 ">
                 <div className="flex items-center space-x-4">
                     <TerrainIcon />
-                    <p className="text-gray-700 text-base ">127m above see level.</p>
+                    <p className="text-gray-700 text-base pt-2">127m above see level.</p>
                 </div>
                 </div>
             <FieldInfoCard/>
@@ -97,8 +99,8 @@ export default function  Field(){
                 }
                
             </div>
-            <div>
-                <CustomCalendar/>
+            <div className="w-64 h-14 pt-4">
+                <CustomCalendar />
             </div>
             <div>
                 <ChartLineChart/>
