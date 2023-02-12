@@ -34,17 +34,15 @@ export default function  Field(){
     //     farms().then(farm =>setData(farm))
     //   },[])
     return(
-        <div className='bg-gray-50 lg:mx-96 sm:mx-80 md:mx-10'>
-            <div className='flex justify-start mx-4 mb-4'>
-                <img src={landscape} alt="" />
-                <p className='ml-8'>{farm&&farm[0].fields[0].altitude+" above sea level"}</p>
-            </div>          
-        <div>
+        // <div className='bg-gray-50 lg:mx-96 sm:mx-80 md:mx-10'>
+        //     <div className='flex justify-start mx-4 mb-4'>
+        //         <img src={landscape} alt="" />
+        //         <p className='ml-8'>{farm&&farm[0].fields[0].altitude+" above sea level"}</p>
+        //     </div>          
+        // <div>
 
-        <div>
-         <Header/>
-        </div>    
-        
+    <div>
+         <Header/>   
         <div className='bg-gray-50 bg-g lg:mx-60 px-6'>
             
                 <div className="justify-between md:items-center md:flex mb-8 ">
@@ -56,18 +54,18 @@ export default function  Field(){
             <FieldInfoCard/>
             <p className='mx-8'>Last sensor reset: 04/03/22 (auto reset)</p>
             <div>
-                <div className='flex justify-between w-full'>
+                {/* <div className='flex justify-between w-full'>
                     <p className='mx-8 font-bold'>Sensors</p>
                     <div className='flex justify-between mx-4 w-8'>
                     <AddIcon onClick={addSensor} />
                     <KeyboardArrowDownIcon onClick={toggleShowSensor}/>
                     </div>
-                </div>
+                </div> */}
                 <div className='flex justify-between '>
                     <p className='mx-8 font-bold w-2/3'>Sensors</p>
                     <div className='flex justify-evenly'>
-                        <AddIcon/>
-                        <KeyboardArrowDownIcon/>
+                        <AddIcon onClick={addSensor}/>
+                        <KeyboardArrowDownIcon onClick={toggleShowSensor}/>
                     </div>
                 </div>
 
@@ -98,10 +96,21 @@ export default function  Field(){
         </div>
         </div>
 
-        {/* kvhdfhvsdhvsd */}
+    //     {/* kvhdfhvsdhvsd */}
 
 
-        {sensor&&(<>
+        
+    //     </div>
+    // </div> 
+
+    )
+    
+}
+
+
+
+
+{/* {sensor&&(<>
             <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
@@ -112,10 +121,5 @@ export default function  Field(){
             </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-          </>)}
-    </div>
-
-    )
-    
-}
+          </>)} */}
 
