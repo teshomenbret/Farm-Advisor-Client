@@ -10,14 +10,14 @@ export default function FAQCard({faq}){
     }
 
     return (
-        <div className='border-l-rose-50 rounded-lg'>
+        <div className='border-l-rose-50 rounded-lg rounded-3xl'>
             <div className='flex justify-between mx-3 bg-white p-3'>
                 <p>{faq.question}</p>
                 <button onClick={toggleShowAnswer}><KeyboardArrowDownIcon/></button>
             </div> 
-            <div className='mx-3 bg-white mb-2 pt-2 px-4'>
+            <div className='mx-3 bg-white mb-2 pt-1 px-4'>
                 {
-                    showAnswer&&( <p pb-3 >{faq.ansower}</p>)
+                    showAnswer&&( <p className='pb-2' >{faq.ansower}</p>)
                 }
             </div>    
         </div>
