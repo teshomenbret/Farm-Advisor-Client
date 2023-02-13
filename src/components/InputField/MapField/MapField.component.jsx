@@ -32,13 +32,13 @@ export default function MapInputField() {
 
     return (
         <div className="flex flex-col m-4">
-        <div className="bg-white text-black relative left-0 m-3 p-2  rounded z-10 ">
-            Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div>
-        <div
-            ref={mapContainer}
-            className="h-34 w-full rrounded-lg m-4"
-        />
+            <div className="bg-white text-black relative left-0 m-3 p-2  rounded z-10 ">
+                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+            </div>
+            <div
+                ref={mapContainer}
+                className="h-34 w-full rrounded-lg m-4"
+            />
         </div>
     );
 }

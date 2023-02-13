@@ -3,10 +3,11 @@ import React from 'react'
 export default function InputField({onChange,label, name, value,icon, ...otherPropes}){
     return (
       <div>
-          <label className="block font-['Roboto'] font-normal text-xs not-italic leading-4">{label}</label>
+          <label htmlFor={name} className="block font-['Roboto'] font-normal text-xs not-italic leading-4">{label}</label>
 
           <div className="relative mt-1 rounded-lg shadow-sm">
               <input
+                id={name}
                 name={name}
                 value = {value}
                 onChange = {onChange}
