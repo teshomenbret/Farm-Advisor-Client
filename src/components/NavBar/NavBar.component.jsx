@@ -1,27 +1,61 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import Rodal from 'rodal';
 import { Navigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import PersonIcon from '@mui/icons-material/Person';
-import Drop from './../Drop/grop.component'
 import Frop from '../Drop/Frop.component';
+import Drop from '../Drop/grop.component'
 import SensorForm from '../../pages/Form/SensorForm/sensorForm.component'
 import FarmForm from '../../pages/Form/FarmForm/farmForm.pages'
 import FieldForm from '../../pages/Form/FieldForm/fieldForm.component';
 
+import { Menu } from '@headlessui/react'
+
 export default function NavBar() {
+
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  },[windowSize]);
+
 
   const [showAddNewSensor, setShowAddNewSensor] = useState(false);
   const [showAddNewField, setShowAddNewField] = useState(false);
   const [showAddNewFarm, setShowAddNewFarm] = useState(false);
 
-  const [showProfile, setShowProfile] = useState(false);
-  const [showHelp, setHelp] = useState(false);
-  const [showSignout, setShowSignout] = useState(false);
+  const  makeAddNewSensorVisable =() =>{
+    setShowAddNewSensor(true)
+    setShowAddNewField(false)
+    setShowAddNewFarm(false)
+}
+  const makeAddNewFiledVisable =() =>{
+    setShowAddNewField(true)
+    setShowAddNewSensor(false)
+    setShowAddNewFarm(false)
+  }
+
+  const makeAddNewFarmVisable =() =>{
+    setShowAddNewFarm(true)
+    setShowAddNewField(false)
+    setShowAddNewSensor(false)
+}
 
 
   const choiceProfile = [  {
     name:"Profile",
-    link:"/help"
+    link:"/profile"
   },
   {
       name:"Help",
@@ -29,51 +63,24 @@ export default function NavBar() {
   }, 
   {
       name:"Sign out",
-      link:"/help"
+      link:"/signUp"
     }
 ]
 
 
-    const addNewSensor = ()=> { 
-          setShowAddNewSensor(!showAddNewSensor)
-          
-      }
-    const addNewField = () => { 
-          setShowAddNewField(!showAddNewField)
-      }
-      const addNewFarm = () => { 
-          setShowAddNewFarm(!showAddNewFarm)
-    }
-
-  // const choiceplus = [  {
-  //       name:"Add New Sensor",
-  //       onclick:addNewSensor
-        
-  //     },
-  //     {
-  //         name:"Add New Field",
-  //         onclick:addNewField
-          
-  //     }, 
-  //     {
-  //         name:"Add New Farm",
-  //         onclick:addNewFarm
-  //       }
-  //   ]
-
   const choiceplus = [  {
     name:"Add New Sensor",
-    link:"/farmForm"
+     onClick:makeAddNewSensorVisable
     
   },
   {
       name:"Add New Field",
-      link:"/fieldForm"
+      onClick:makeAddNewFiledVisable
       
   }, 
   {
       name:"Add New Farm",
-      link:"/sensorForm"
+      onClick:makeAddNewFarmVisable
     }
 ]
 
@@ -95,7 +102,13 @@ export default function NavBar() {
               <Frop choice ={choiceProfile} icon = { <PersonIcon style={{color: 'white'}}/>}/>
             </div>
             <div className='mx-2'>
-              <Frop choice ={choiceplus} icon = { <AddIcon style={{color: 'white'}}/>}/>
+              {/* <Frop choice ={choiceplus} icon = { <AddIcon style={{color: 'white'}}/>}/> */}
+
+
+              <Drop choice = {choiceplus}/>
+
+
+              
             </div>
           </div>
           
@@ -103,52 +116,27 @@ export default function NavBar() {
       </div>
     </nav>
 
-    {
-          showAddNewSensor &&(<>
-            <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+        <div>
+              <Rodal customStyles={{ height: '80%', overflow:'auto', backgroundColor :'rgb(249 250 251)' }} width = {windowSize[0]<600?windowSize[0]:600} height = {800} visible={showAddNewSensor} onClose={setShowAddNewSensor}>
+                  <SensorForm/>
+              </Rodal>
+        </div>
 
-             <SensorForm setClose = {setShowAddNewSensor}/>
-              
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-          </>)
-          }
+        <div>
+              <Rodal customStyles ={{ height: '80%', overflow:'auto', 'background-color' :'rgb(249 250 251)' }} width = {windowSize[0]<600?windowSize[0]:600} height = {500} visible={showAddNewField} onClose={setShowAddNewField}>
+                    <FieldForm/>
+              </Rodal>
+        </div>
 
+        <div>
+              <Rodal customStyles ={{ height: '80%', overflow:'auto', 'background-color' :'rgb(249 250 251)' }} width = {windowSize[0]<600?windowSize[0]:600} height = {500} visible={showAddNewFarm} onClose={setShowAddNewFarm}>
+                  <FarmForm/>
+              </Rodal>
+        </div>
 
-    {
-        showAddNewField &&(<>
-            <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+    
 
-             <FieldForm setClose = {setShowAddNewField}/>
-              
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-          </>)
-          }
-
-
-{
-        showAddNewFarm &&(<>
-            <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
-
-             <FarmForm setClose = {setShowAddNewFarm}/>
-              
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-          </>)
-          }
+          
     </>
   );
 }
