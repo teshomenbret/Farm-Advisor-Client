@@ -2,10 +2,11 @@ import React, {useState} from 'react'
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
 import { Navigate } from 'react-router';
+import {create } from '../../../api/user.api'
 
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
-import {create} from '../../../api/farm.api'
+// import {create} from '../../../api/farm.api'
 
 import {
     RecaptchaVerifier,
@@ -91,9 +92,17 @@ export default function SignupForm(){
         try {
           const d = await result.confirm(otp);
           console.log(d)
+          let formData = new FormData();
+          formData.append('phone', phone);
+          create(formData).then((data) =>{
+            console.log( "data", data)
+          })
+        
           toggleNavigate()
+
         } catch (err) {
             console.log(err.message);
+
         }
       };
         
@@ -114,13 +123,6 @@ export default function SignupForm(){
             </div>  ):(
                 <div className='bg-gray-50 bg-g lg:mx-60 px-6 mt-0 pt-12'>
                     <form>
-                    {/* <PhoneInput
-                        international
-                        defaultCountry="RU"
-                        value={country}
-                        onChange={setCountry
-                    }/> */}
-                        {/* <InputField label = "country" onChange={handleCountryChange} name='country'     value={country}     required/> */}
                         <InputField label = "phone"  onChange={handlePhoneChange} name='phone' value={phone} required/> 
                         {phoneErrors && showEroor &&(
                                    <div role="alert" className="card error">
