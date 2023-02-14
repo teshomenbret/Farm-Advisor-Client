@@ -6,6 +6,10 @@ import {create} from '../../../api/farm.api'
 import MapInputField from '../../../components/InputField/MapField/MapField.component';
 
 export default function FarmForm() {
+  const [lng, setLng] = useState(38.763611);
+  const [lat, setLat] = useState(9.005401);
+  const [id, setID] = useState("");
+
   const [navigate,setNavigate]=useState(false);
   const  toggleNavigate = ()=> {
       setNavigate(!navigate)
@@ -17,20 +21,21 @@ export default function FarmForm() {
         const {value} = event.target
         setName(value)
     }
-    const handleLocationChange = event => { 
-        const {value} = event.target
-        setLocation(value)
-    }
     const handleSubmit= event => { 
         event.preventDefault()
+
         const farm = {
             name: name || undefined,
-            location: location || undefined
+            location: location || undefined,
+            lng: lng || undefined,
+            lat:lat || undefined,
         }
         create(farm).then((data) => {
-            console.log(data)
+          setID(data.id)
+          console.log(data)
+          toggleNavigate()
         })
-        toggleNavigate()
+        
     }
   
   return (
@@ -44,14 +49,16 @@ export default function FarmForm() {
                           <div className='mb-4 px-3'>
                             <InputField label = "Farm Name" onChange={handleNameChange} name='name' value={name} required/>
                           </div>
-                          <div className='mb-4 px-3'><MapInputField/></div>
+                          <div className='mb-4 px-3'>
+                            <MapInputField lng = {lng} lat = {lat} setLat={setLat} setLng = {setLng}/>
+                            </div>
                           <div className='pb-3 mx-0 mb-0 px-3 border'>
                             <Button onClick={handleSubmit} text = "Create New Farm"/>
                           </div>
                         </form>
                     </div>
           
-          {navigate&& (<Navigate to="/fieldLanding" />)}
+          {navigate&& (<Navigate to={`/fieldLanding/${id}`} />)}
     </>
   );
 }

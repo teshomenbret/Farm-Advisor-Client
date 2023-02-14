@@ -58,6 +58,7 @@ export default function  Farm(){
   ]
     useEffect(()=>{
         farms().then(farm =>{
+            console.log("farm", farm)
             setData(farm)
             setSelectedFarm(farm[0])
         })
@@ -79,7 +80,7 @@ export default function  Farm(){
             
             <h1 className='font-bold'>Alerts</h1>
                
-            {   selectedFarm&&selectedFarm.alerts.map((alert,index ) =>( 
+            {   selectedFarm&&selectedFarm.alerts&&selectedFarm.alerts.map((alert,index ) =>( 
                     <div key={index}>
                         <AlertCard alert = {alert}/>
                     </div>  

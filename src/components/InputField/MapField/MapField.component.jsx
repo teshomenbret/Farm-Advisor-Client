@@ -4,11 +4,10 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2FpbnQxMiIsImEiOiJjbGUxMHRlZ3AxZ3JsM3ByeDh1ZWNraHhrIn0.e6WS7pslf0wlma3BZzk_yg";
 
-export default function MapInputField() {
+export default function MapInputField( {lng, lat, setLat, setLng}) {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng, setLng] = useState(38.763611);
-    const [lat, setLat] = useState(9.005401);
+
     const [zoom, setZoom] = useState(9);
 
     useEffect(() => {

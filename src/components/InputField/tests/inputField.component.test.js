@@ -19,6 +19,5 @@ test('cheack if the label correct', () => {
   render(<InputField data-testid="required-input" label = "Farm Name" onChange={handleNameChange} name='name' value={name} required/>  );
   const labelElement = screen.getByText('Farm Name')
   expect(labelElement).toBeVisible()
-//   expect(labelElement).not.toBeVisible()
 
 });

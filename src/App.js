@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import Farm from './pages/Farm/farm.pages';
 import Field from './pages/Field/field.pages';
 import SignupLanding from './pages/Landing/SignupLanding/signUpLanding.pages'
@@ -16,8 +15,6 @@ import { BrowserRouter,Route ,Routes} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar.component';
 import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions.pages';
 
-import SimpleMap from './gogglemap'
-
 
 function App() {
   return (
@@ -29,15 +26,14 @@ function App() {
 				<Route path='/signUp' element={<SignupLanding/>}/>
 				<Route path='/profile' element={<Profile/>}/>
 				<Route path='/farm' element={<Farm/>} />
-				<Route path='/field' element={<Field/>} />
-				<Route path='/fieldLanding' element={<FieldLanding/>} />
-				<Route path='/sensorLanding' element={<SensorLanding/>} />
+				<Route path='/field/:id' element={<Field/>} />
+				<Route path='/fieldLanding/:id' element={<FieldLanding/>} />
+				<Route path='/sensorLanding/:id' element={<SensorLanding/>} />
 				<Route path='/help' element={<Help/>} />
 				<Route path='/farmForm' element={<FarmForm/>} />
 				<Route path='/fieldForm' element={<FieldForm/>}/>
 				<Route path='/sensorForm' element={<SensorForm/>}/>
-				<Route path='signupForm' element={<SignupForm/>} />
-				<Route path='map' element={<SimpleMap/>} />
+				<Route path='/signupForm' element={<SignupForm/>} />
 				<Route path='/termsandconditions' element={<TermsAndConditions/>} />
 			</Routes>
       </BrowserRouter>
@@ -46,5 +42,3 @@ function App() {
 }
 
 export default App;
-
-// AIzaSyBXEUMJ5JljujyZ5lEz8dlvjbG6SzFbum0

@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Rodal from 'rodal';
+import { useParams} from "react-router-dom"
 import Landing from '../../../components/Landing/landing.component'
 import field_image from '../../../asset/field.svg'
 import SensorForm from '../../Form/SensorForm/sensorForm.component';
@@ -33,6 +34,8 @@ export default function  (){
     const hide =() =>{
         setVisible( false );
     }
+    const params = useParams()
+
     return(
         <>
         <div>
@@ -46,7 +49,7 @@ export default function  (){
 
         <div>
             <Rodal customStyles={{ height: '80%', overflow:'auto', backgroundColor :'rgb(249 250 251)' }} width = {windowSize[0]<600?windowSize[0]:600} height = {800} visible={visible} onClose={hide}>
-                <SensorForm/>
+                <SensorForm id ={params.id}/>
             </Rodal>
       </div>
     </>

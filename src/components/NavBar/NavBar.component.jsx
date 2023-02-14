@@ -70,17 +70,17 @@ export default function NavBar() {
 
   const choiceplus = [  {
     name:"Add New Sensor",
-     onClick:makeAddNewSensorVisable
+    link:"/sensorForm"
     
   },
   {
       name:"Add New Field",
-      onClick:makeAddNewFiledVisable
+      link:"/fieldForm"
       
   }, 
   {
       name:"Add New Farm",
-      onClick:makeAddNewFarmVisable
+      link:"/farmForm"
     }
 ]
 
@@ -102,10 +102,10 @@ export default function NavBar() {
               <Frop choice ={choiceProfile} icon = { <PersonIcon style={{color: 'white'}}/>}/>
             </div>
             <div className='mx-2'>
-              {/* <Frop choice ={choiceplus} icon = { <AddIcon style={{color: 'white'}}/>}/> */}
+              <Frop choice ={choiceplus} icon = { <AddIcon style={{color: 'white'}}/>}/>
 
 
-              <Drop choice = {choiceplus}/>
+              {/* <Drop choice = {choiceplus}/> */}
 
 
               

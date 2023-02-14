@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
-import {create} from '../../../api/farm.api'
+import {createField} from '../../../api/field.api'
 import { Navigate } from 'react-router';
 
-export default function FieldForm(){
+export default function FieldForm({id}){
+
+    const [idf, setID] = useState("");
 
     const [navigate,setNavigate]=useState(false);
     const  toogleNavigate= ()=> {
@@ -25,12 +27,15 @@ export default function FieldForm(){
         event.preventDefault()
         const field = {
             name: name || undefined,
-            altitude: altitude || undefined
+            altitude: altitude || undefined,
+            farmId : id 
         }
-        create(field).then((data) => {
+        createField(field).then((data) => {
+            setID(data.id)
             console.log(data)
+            toogleNavigate()
         })
-        toogleNavigate()
+        
     }
         
     return (
@@ -44,14 +49,14 @@ export default function FieldForm(){
                         <InputField label = "Farm Name" onChange={handleNameChange} name='name' value={name}     required/>                          
                     </div>
                     <div className='mb-4 px-3'>
-                            <InputField label = "Location"  onChange={handleAltitudeChange} name='altitude' value={altitude} required/>    
+                        <InputField label = "Location"  onChange={handleAltitudeChange} name='altitude' value={altitude} required/>    
                     </div>
                     <div className='pb-3 mx-0 mb-0 px-3 border'>
                         <Button onClick={handleSubmit} text = "Create New Field"/>
                     </div>
                 </form>
             </div>
-          {navigate&& (<Navigate to="/sensorLanding" />)}
+          {navigate&& (<Navigate to={`/sensorLanding/${idf}`} />)}
     </>
   );
 }

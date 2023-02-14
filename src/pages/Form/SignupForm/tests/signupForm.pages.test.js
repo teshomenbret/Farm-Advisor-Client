@@ -1,7 +1,6 @@
 import React from 'react';
 import {render, fireEvent, screen, cleanup} from '@testing-library/react';
 import SignupForm from "../signupForm.pages";
-import user from '@testing-library/user-event';
 
 
 describe("SignupForm", () => {

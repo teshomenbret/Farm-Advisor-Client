@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import { Navigate } from 'react-router';
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
-import {create} from '../../../api/farm.api'
+import {create} from '../../../api/sensor.api'
 import sensorLocation from  '../../../asset/sensorLocation.svg'
 import gddField from  '../../../asset/gddField.svg'
 import qr_code_scanner from  '../../../asset/qr_code_scanner.svg'
 import MapInputField from '../../../components/InputField/MapField/MapField.component';
 
-export default function SensorForm(){
+export default function SensorForm(id){
     const [navigate,setNavigate]=useState(false);
 
     const  toogleNavigate= ()=> {
@@ -19,6 +19,8 @@ export default function SensorForm(){
     const [GDD,setGDD]=useState("");
     const [installation_date,setInstallationDate]=useState("");
     const [last_cutting_date_at_Field,setLastCuttingDateAtField]=useState("");
+    const [lng, setLng] = useState(38.763611);
+    const [lat, setLat] = useState(9.005401);
    
     const handleSerialNumberChange = event => { 
         const {value} = event.target
@@ -44,16 +46,19 @@ export default function SensorForm(){
         event.preventDefault()
         const sensor= {
             serial_number: serial_number || undefined,
-            location:location || undefined,
+            lng: lng,
+            lat: lat,
             GDD:GDD || undefined,
             installation_date:installation_date || undefined,
             last_cutting_date_at_Field:last_cutting_date_at_Field || undefined,
-
+            fieldId: id
         }
+        console.log(sensor)
         create(sensor).then((data) => {
-            console.log(data)
+            console.log("sensor",data)
+            toogleNavigate()
         })
-        toogleNavigate()
+        
         
     }
         
@@ -77,7 +82,7 @@ export default function SensorForm(){
                         </div>
                         
                         <div className='mb-4 px-3 '>
-                            <MapInputField />                      
+                            <MapInputField lng = {lng} lat = {lat} setLat={setLat} setLng = {setLng}/>                     
                         </div>
                     
 

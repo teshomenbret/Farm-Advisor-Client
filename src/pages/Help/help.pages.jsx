@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import {faqsList} from '../../api/farm.api'
+import {faqsList} from '../../api/faq.api'
 import FAQCard from '../../components/Cards/FAQCard/fqaCard.componet';
 
 export default function  Help(){
-    const [faqs,setData]=useState();
+    const [faqs,setFaqs]=useState();
     const d =0
     useEffect(()=>{
-        faqsList().then(faq =>setData(faq))
+        faqsList().then(faq =>{
+            console.log("faqa",faq)
+            setFaqs(faq)})
       },[d])
     return(
         <div className='bg-gray-50 lg:mx-60 sm:mx-80 md:mx-10'>

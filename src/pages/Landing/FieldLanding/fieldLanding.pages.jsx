@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Rodal from 'rodal';
+import { useParams} from "react-router-dom"
 import Landing from '../../../components/Landing/landing.component'
 import field_image from '../../../asset/field.svg'
 import FieldForm from '../../Form/FieldForm/fieldForm.component'
@@ -35,6 +36,9 @@ export default function  FieldLanding(){
     const hide =() =>{
         setVisible( false );
     }
+
+    const params = useParams()
+    
     
     return(
         <>
@@ -49,7 +53,7 @@ export default function  FieldLanding(){
 
         <div>
             <Rodal customStyles ={{ height: '80%', overflow:'auto', 'background-color' :'rgb(249 250 251)' }} width = {windowSize[0]<600?windowSize[0]:600} height = {500} visible={visible} onClose={hide}>
-                <FieldForm/>
+                <FieldForm id ={params.id}/>
             </Rodal>
       </div>
       
