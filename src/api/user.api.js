@@ -25,7 +25,7 @@ const farms = async () => {
             'Content-Type': 'application/json',
             // 'Authorization': 'Bearer ' + credentials.t
         },
-            body: farm
+            body: user
       }).then((res) => res.json());
         // return await response.json()
     } catch(err) {
