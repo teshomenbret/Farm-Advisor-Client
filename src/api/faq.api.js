@@ -3,7 +3,7 @@
     try {
         let response = await fetch('http://localhost:3000/faqs',{
                 headers : { 
-                  'Content-Type': 'application/json',
+                  // 'Content-Type': 'application/json',
                   'Accept': 'application/json'
                 }
               })
@@ -15,3 +15,4 @@
   
   
   export {faqsList}
+
