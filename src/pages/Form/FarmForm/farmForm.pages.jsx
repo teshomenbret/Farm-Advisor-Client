@@ -9,6 +9,7 @@ export default function FarmForm() {
   const [lng, setLng] = useState(38.763611);
   const [lat, setLat] = useState(9.005401);
   const [id, setID] = useState("");
+  const loggedInUser = localStorage.getItem("user");
 
   const [navigate,setNavigate]=useState(false);
   const  toggleNavigate = ()=> {

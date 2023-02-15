@@ -95,7 +95,8 @@ export default function SignupForm(){
           let formData = new FormData();
           formData.append('phone', phone);
           create(formData).then((data) =>{
-            
+            localStorage.setItem('userId', data)
+
             console.log( "data", data)
           })
         
