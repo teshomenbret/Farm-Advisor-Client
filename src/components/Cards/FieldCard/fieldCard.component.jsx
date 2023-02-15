@@ -24,7 +24,7 @@ export default function FieldCard({field}){
             </div>
             <p>Your Optimal Cutting Period is in 3 days</p>
         </div>
-        {navigate&& (<Navigate to={`/field/${field.id}`} />)}  
+        {navigate&& (<Navigate to={`/field/${field.fieldId}`} />)}  
        </> 
     )
 }

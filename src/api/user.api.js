@@ -18,18 +18,15 @@ const farms = async () => {
   
   const create = async (user) => {
     try {
-        fetch('http://4ec9-2a0d-5600-42-00-5be7.ngrok.io/api/users' , {
+        fetch('http://localhost:3000/api/users' , {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer ' + credentials.t
         },
             body: user
       }).then((res) => {
         console.log("res",res)
         res.json()});
-        // return await response.json()
     } catch(err) {
         console.log(err)
         return {
@@ -45,8 +42,6 @@ const farms = async () => {
             method: 'PUT',
             headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer ' + credentials
         },
             body: JSON.stringify(farm)
       })
@@ -65,8 +60,6 @@ const farms = async () => {
         method: 'DELETE',
         headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        // 'Authorization': 'Bearer ' + credentials.t
         }
         })
         return await response.json()

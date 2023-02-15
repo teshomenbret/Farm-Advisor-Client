@@ -1,28 +1,25 @@
-// const sensors = async () => {
-//     try {
-//         let response = await fetch('http://localhost:3000/sensors',{
-//                 headers : { 
-//                   'Content-Type': 'application/json',
-//                   'Accept': 'application/json'
-//                 }
-//               })
-//         return await response.json()
-//     } catch(err) {
-//         console.log(err)
-//         return {
-//             error:err.message
-//         }
-//     }
-//   }
+const sensors = async () => {
+    try {
+        let response = await fetch('http://localhost:3000/api/sensors',{
+                headers : { 
+                  'Accept': 'application/json'
+                }
+              })
+        return await response.json()
+    } catch(err) {
+        console.log(err)
+        return {
+            error:err.message
+        }
+    }
+  }
   
   const create = async (sensor) => {
     try {
-        let response = await fetch('http://64cb-197-156-111-234.ngrok.io/api/sensors' , {
+        let response = await fetch('http://localhost:3000/api/sensors' , {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
-            // 'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer ' + credentials.t
         },
             body: sensor
       })
@@ -77,4 +74,4 @@
   
   
   
-  export {create}
+  export {create, sensors}

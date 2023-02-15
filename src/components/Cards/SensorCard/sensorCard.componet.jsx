@@ -46,8 +46,8 @@ export default function SensorCard({sensor}){
             <Drop choice = {choice}/>
         </div>
           <div className='mt-6'>
-            <p>{sensor.serial_number}</p>
-            <p>{"GDD "+sensor.GDD}</p>
+            <p>{sensor.serialNo}</p>
+            <p>{"GDD "+sensor.optimalGDD}</p>
           </div>
 
         </div>

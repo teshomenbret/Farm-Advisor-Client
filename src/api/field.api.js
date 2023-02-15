@@ -1,8 +1,7 @@
-const fields = async (id) => {
+const fields = async () => {
     try {
-        let response = await fetch(`http://localhost:3000/fields/${id}?_embed=sensors`,{
+        let response = await fetch(`http://localhost:3000/api/fields/`,{
                 headers : { 
-                  'Content-Type': 'application/json',
                   'Accept': 'application/json'
                 }
               })
@@ -14,15 +13,12 @@ const fields = async (id) => {
         }
     }
   }
-//   http://localhost:3000/fields/1?_embed=sensors
   const createField = async (field) => {
     try {
-        let response = await fetch('http://64cb-197-156-111-234.ngrok.io/api/farmFields' , {
+        let response = await fetch('http://localhost:3000/api/farmFields' , {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
-            // 'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer ' + credentials.t
         },
             body: field
       })
@@ -38,12 +34,10 @@ const fields = async (id) => {
   
   const updateField = async (field, id,credentials) => {
     try {
-        let response = await fetch(`http://localhost:3000/fields/'${id}`, {
+        let response = await fetch(`http://localhost:3000/api/fields/'${id}`, {
             method: 'PUT',
             headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer ' + credentials
         },
             body: JSON.stringify(field)
       })
@@ -58,12 +52,10 @@ const fields = async (id) => {
   
   const removeField = async (id, credentials) => {
     try {
-        let response = await fetch(`http://localhost:3000/fields/'${id}`, {
+        let response = await fetch(`http://localhost:3000/api/fields`, {
         method: 'DELETE',
         headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        // 'Authorization': 'Bearer ' + credentials.t
         }
         })
         return await response.json()

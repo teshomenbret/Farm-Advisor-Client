@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Rodal from 'rodal';
-import {farms} from '../../api/farm.api'
+import {farms, remove} from '../../api/farm.api'
 import AlertCard from '../../components/Cards/AlertCard/alertCard.component'
 import FieldCard from '../../components/Cards/FieldCard/fieldCard.component'
 import add from '../../asset/add.svg'
@@ -8,6 +8,7 @@ import farm_page from '../../asset/farm-page.svg'
 import FarmListbox from '../../components/Listbox/listbox.component'
 import Drop from '../../components/Drop/grop.component'
 import FieldForm from '../Form/FieldForm/fieldForm.component'
+
 
 // include styles
 import 'rodal/lib/rodal.css';
@@ -47,12 +48,14 @@ export default function  Farm(){
         name:"Edit Farm",
         onClick:()=>{
             console.log("edit farm")
+           
         }
     },
     {
         name:"Delete Farm",
         onClick:()=>{
-            console.log("edit farm")
+            remove(selectedFarm.farmId)
+            // console.log("edit farm")
         }
     }
   ]

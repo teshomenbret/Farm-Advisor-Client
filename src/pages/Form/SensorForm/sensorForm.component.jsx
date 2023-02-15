@@ -49,21 +49,9 @@ export default function SensorForm(fieldId){
           formData.append('serialNo', serial_number);
           formData.append('long', lng);
           formData.append('lat', lat);
-          formData.append('fieldId', 'a121c295-ffdc-4a58-8157-fbfd772b4840');
+          formData.append('fieldId', fieldId);
           formData.append('lastCuttingDate', last_cutting_date_at_Field)
         
-
-
-        // const sensor= {
-        //     serialNo: serial_number || undefined,
-        //     lng: lng,
-        //     lat: lat,
-        //     GDD:GDD || undefined,
-        //     installation_date:installation_date || undefined,
-        //     last_cutting_date_at_Field:last_cutting_date_at_Field || undefined,
-        //     fieldId: id
-        // }
-        // console.log(sensor)
         create(formData).then((data) => {
             console.log("sensor",data)
             toogleNavigate()

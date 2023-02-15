@@ -1,9 +1,8 @@
 
 const farms = async () => {
     try {
-        let response = await fetch('https://64cb-197-156-111-234.ngrok.io/api/farms',{
+        let response = await fetch('http://localhost:3000/farms/api/farms',{
                 headers : { 
-                  'Content-Type': 'application/json',
                   'Accept': 'application/json'
                 }
               })
@@ -18,12 +17,10 @@ const farms = async () => {
   
   const create = async (farm) => {
     try {
-        let response = await fetch('https://64cb-197-156-111-234.ngrok.io/api/farms' , {
+        let response = await fetch('http://localhost:3000/farms/api/farms' , {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
-            // 'Content-Type': 'multipart/form-data; boundary=something',
-            // 'Authorization': 'Bearer ' + credentials.t
         },
             body: farm
       })
@@ -43,8 +40,6 @@ const farms = async () => {
             method: 'PUT',
             headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer ' + credentials
         },
             body: JSON.stringify(farm)
       })
@@ -63,8 +58,6 @@ const farms = async () => {
         method: 'DELETE',
         headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        // 'Authorization': 'Bearer ' + credentials.t
         }
         })
         return await response.json()

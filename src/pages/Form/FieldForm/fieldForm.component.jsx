@@ -30,12 +30,6 @@ export default function FieldForm({farmId}){
           formData.append('name', name);
           formData.append('altitude', altitude);
           formData.append('farmId', "c6ae654d-4fc6-4dd6-b96b-3283c03c3d00");
-
-        // const field = {
-        //     name: name || undefined,
-        //     altitude: altitude || undefined,
-        //     farmId : id c6ae654d-4fc6-4dd6-b96b-3283c03c3d00
-        // }
         createField(formData).then((data) => {
             setID(data.fieldId)
             console.log("data",data)
