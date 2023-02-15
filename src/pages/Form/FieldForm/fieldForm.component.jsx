@@ -4,7 +4,7 @@ import Button from '../../../components/Button/button.componet'
 import {createField} from '../../../api/field.api'
 import { Navigate } from 'react-router';
 
-export default function FieldForm({id}){
+export default function FieldForm({farmId}){
 
     const [idf, setID] = useState("");
 
@@ -25,14 +25,20 @@ export default function FieldForm({id}){
     }
     const handleSubmit= event => { 
         event.preventDefault()
-        const field = {
-            name: name || undefined,
-            altitude: altitude || undefined,
-            farmId : id 
-        }
-        createField(field).then((data) => {
-            setID(data.id)
-            console.log(data)
+
+        let formData = new FormData();
+          formData.append('name', name);
+          formData.append('altitude', altitude);
+          formData.append('farmId', "c6ae654d-4fc6-4dd6-b96b-3283c03c3d00");
+
+        // const field = {
+        //     name: name || undefined,
+        //     altitude: altitude || undefined,
+        //     farmId : id c6ae654d-4fc6-4dd6-b96b-3283c03c3d00
+        // }
+        createField(formData).then((data) => {
+            setID(data.fieldId)
+            console.log("data",data)
             toogleNavigate()
         })
         

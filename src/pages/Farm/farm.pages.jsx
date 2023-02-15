@@ -101,7 +101,7 @@ export default function  Farm(){
             </div>
             <div>
                 <Rodal customStyles ={{ height: '80%', overflow:'auto', 'background-color' :'rgb(249 250 251)' }} width = {windowSize[0]<600?windowSize[0]:600} height = {500} visible={visible} onClose={hide}>
-                    <FieldForm/>
+                    <FieldForm />
                 </Rodal>
         </div>
     </>

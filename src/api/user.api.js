@@ -18,7 +18,7 @@ const farms = async () => {
   
   const create = async (user) => {
     try {
-        fetch('https://c1d9-149-36-50-138.ngrok.io/api/users' , {
+        fetch('http://4ec9-2a0d-5600-42-00-5be7.ngrok.io/api/users' , {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
@@ -26,7 +26,9 @@ const farms = async () => {
             // 'Authorization': 'Bearer ' + credentials.t
         },
             body: user
-      }).then((res) => res.json());
+      }).then((res) => {
+        console.log("res",res)
+        res.json()});
         // return await response.json()
     } catch(err) {
         console.log(err)

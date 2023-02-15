@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2FpbnQxMiIsImEiOiJjbGUxMHRlZ3AxZ3JsM3ByeDh1ZWNraHhrIn0.e6WS7pslf0wlma3BZzk_yg";
@@ -36,7 +37,7 @@ export default function MapInputField( {lng, lat, setLat, setLng}) {
             </div>
             <div
                 ref={mapContainer}
-                className="h-34 w-full rrounded-lg m-4"
+                className="h-[0px] w-full rrounded-lg m-4"
             />
         </div>
     );

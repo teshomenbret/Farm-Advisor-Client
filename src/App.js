@@ -21,6 +21,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
 	  		<NavBar/>
+	
 			<Routes>
 				<Route path='/' element={<FarmLanding/>} />
 				<Route path='/signUp' element={<SignupLanding/>}/>
@@ -36,6 +37,7 @@ function App() {
 				<Route path='/signupForm' element={<SignupForm/>} />
 				<Route path='/termsandconditions' element={<TermsAndConditions/>} />
 			</Routes>
+			{/* </Routes> */}
       </BrowserRouter>
     </div>
   );

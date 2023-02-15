@@ -8,7 +8,7 @@ import gddField from  '../../../asset/gddField.svg'
 import qr_code_scanner from  '../../../asset/qr_code_scanner.svg'
 import MapInputField from '../../../components/InputField/MapField/MapField.component';
 
-export default function SensorForm(id){
+export default function SensorForm(fieldId){
     const [navigate,setNavigate]=useState(false);
 
     const  toogleNavigate= ()=> {
@@ -44,21 +44,30 @@ export default function SensorForm(id){
     }
     const handleSubmit= event => { 
         event.preventDefault()
-        const sensor= {
-            serial_number: serial_number || undefined,
-            lng: lng,
-            lat: lat,
-            GDD:GDD || undefined,
-            installation_date:installation_date || undefined,
-            last_cutting_date_at_Field:last_cutting_date_at_Field || undefined,
-            fieldId: id
-        }
-        console.log(sensor)
-        create(sensor).then((data) => {
+
+        let formData = new FormData();
+          formData.append('serialNo', serial_number);
+          formData.append('long', lng);
+          formData.append('lat', lat);
+          formData.append('fieldId', 'a121c295-ffdc-4a58-8157-fbfd772b4840');
+          formData.append('lastCuttingDate', last_cutting_date_at_Field)
+        
+
+
+        // const sensor= {
+        //     serialNo: serial_number || undefined,
+        //     lng: lng,
+        //     lat: lat,
+        //     GDD:GDD || undefined,
+        //     installation_date:installation_date || undefined,
+        //     last_cutting_date_at_Field:last_cutting_date_at_Field || undefined,
+        //     fieldId: id
+        // }
+        // console.log(sensor)
+        create(formData).then((data) => {
             console.log("sensor",data)
             toogleNavigate()
         })
-        
         
     }
         

@@ -90,10 +90,10 @@ export default function SignupForm(){
         e.preventDefault();
         if (otp === "" || otp === null) return;
         try {
-          const d = await result.confirm(otp);
-          console.log(d)
+          // const d = await result.confirm(otp);
+          // console.log(d)
           let formData = new FormData();
-          formData.append('phone', phone);
+          formData.append('phone', '0943207662');
           create(formData).then((data) =>{
             console.log( "data", data)
           })

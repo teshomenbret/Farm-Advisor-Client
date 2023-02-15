@@ -24,17 +24,16 @@ export default function FarmForm() {
     const handleSubmit= event => { 
         event.preventDefault()
 
-        const farm = {
-            name: name || undefined,
-            location: location || undefined,
-            lng: lng || undefined,
-            lat:lat || undefined,
-        }
-        create(farm).then((data) => {
-          setID(data.id)
-          console.log(data)
-          toggleNavigate()
-        })
+        let formData = new FormData();
+          formData.append('name', name);
+          formData.append('longitude', lng);
+          formData.append('latitude', lat);
+          formData.append('userId', "7ed255df-0212-4671-2390-08db0e7c5a32");
+          create(formData).then((data) =>{
+            setID(data.farmId)
+            console.log( "data", data)
+            toggleNavigate()
+          })
         
     }
   

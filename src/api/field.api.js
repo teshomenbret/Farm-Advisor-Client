@@ -17,14 +17,14 @@ const fields = async (id) => {
 //   http://localhost:3000/fields/1?_embed=sensors
   const createField = async (field) => {
     try {
-        let response = await fetch('http://localhost:3000/fields' , {
+        let response = await fetch('http://64cb-197-156-111-234.ngrok.io/api/farmFields' , {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/json',
             // 'Authorization': 'Bearer ' + credentials.t
         },
-            body: JSON.stringify(field)
+            body: field
       })
         return await response.json()
     } catch(err) {
