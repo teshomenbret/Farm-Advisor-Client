@@ -33,25 +33,25 @@ const sensors = async () => {
   }  
   
   
-//   const updateSensor = async (sensor, id,credentials) => {
-//     try {
-//         let response = await fetch(`http://localhost:3000/sensors/'${id}`, {
-//             method: 'PUT',
-//             headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json',
-//             // 'Authorization': 'Bearer ' + credentials
-//         },
-//             body: JSON.stringify(sensor)
-//       })
-//         return await response.json()
-//     } catch(err) {
-//         console.log(err)
-//         return {
-//             error:err.message
-//         }
-//     }
-//   }  
+  const updateSensor = async (sensor) => {
+    try {
+        let response = await fetch(`http://localhost:3000/sensors/`, {
+            method: 'PUT',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            // 'Authorization': 'Bearer ' + credentials
+        },
+            body: JSON.stringify(sensor)
+      })
+        return await response.json()
+    } catch(err) {
+        console.log(err)
+        return {
+            error:err.message
+        }
+    }
+  }  
   
 //   const removeSensor = async (id, credentials) => {
 //     try {
@@ -74,4 +74,4 @@ const sensors = async () => {
   
   
   
-  export {create, sensors}
+  export {create, sensors, updateSensor }

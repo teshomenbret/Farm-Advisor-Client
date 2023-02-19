@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import InputField from '../../../components/InputField/inputField.component';
 import Button from '../../../components/Button/button.componet'
-import {create} from '../../../api/farm.api'
+import {updateSensor} from '../../../api/sensor.api'
 import calander from  '../../../asset/calander.svg'
 
 export default function ResetGDDForm({toggleShowResetGDDForm}) {
@@ -17,7 +17,7 @@ export default function ResetGDDForm({toggleShowResetGDDForm}) {
       const sensor= {
           GDD:GDD || undefined,
       }
-      create(sensor).then((data) => {
+      updateSensor(sensor).then((data) => {
           console.log(data)
       })
   }
