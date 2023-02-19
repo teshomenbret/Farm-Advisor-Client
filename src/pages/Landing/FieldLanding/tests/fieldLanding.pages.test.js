@@ -9,7 +9,14 @@ describe('Landing Module', () => {
     const h1Element = screen.getByText(/Add a field/)
     expect(h1Element).toBeInTheDocument()
     const buElement = screen.getByRole("button", {name : /Add my first field/})
-    expect(buElement).toBeDefined
-    expect(buElement).toBeChecked
+   
+  });
+
+  test('display Button UI corecily', () => {
+
+    render(<FieldLanding />);
+    const buElement = screen.getByRole("button", {name : /Add my first field/})
+    expect(buElement).toBeInTheDocument()
+   
   });
 });

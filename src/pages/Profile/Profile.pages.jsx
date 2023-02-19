@@ -1,19 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Header from '../../components/NavBar/Header.component';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function  Profile(){
-    // const [faqs,setData]=useState();
-    // useEffect(()=>{
-    //     faqsList().then(faq =>setData(faq))
-    //   },[])
-
     const showTermsandConditions = () => {
         console.log('Terms and Conditions')
     }
     return(
         <div>
-            <Header/>
+            {/* <Header/> */}
             <div className='bg-gray-50 lg:mx-60 sm:mx-80 md:mx-10 h-screen'>
             <div>
                 <p className='mx-3 pt-2'>Phone</p>

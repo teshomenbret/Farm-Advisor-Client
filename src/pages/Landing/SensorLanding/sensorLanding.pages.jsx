@@ -7,7 +7,7 @@ import SensorForm from '../../Form/SensorForm/sensorForm.component';
 // include styles
 import 'rodal/lib/rodal.css';
 
-export default function  (){
+export default function SensorLanding (){
 
     const [windowSize, setWindowSize] = useState([
         window.innerWidth,

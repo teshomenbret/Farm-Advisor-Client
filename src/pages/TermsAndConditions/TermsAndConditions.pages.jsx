@@ -19,7 +19,7 @@ export default function  TermsAndConditions(){
     return(
         <div>
             <div className='bg-gray-50 lg:mx-60 sm:mx-80 md:mx-10 h-screen'>
-            <Header/>
+            {/* <Header/> */}
             <div className='px-12 py-10'>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
                     Fugit iure odio eos saepe dolorum magni. Natus doloremque nobis, provident earum nesciunt, 

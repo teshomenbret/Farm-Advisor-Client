@@ -6,7 +6,7 @@ import {create} from '../../../api/sensor.api'
 import sensorLocation from  '../../../asset/sensorLocation.svg'
 import gddField from  '../../../asset/gddField.svg'
 import qr_code_scanner from  '../../../asset/qr_code_scanner.svg'
-import MapInputField from '../../../components/InputField/MapField/MapField.component';
+// import MapInputField from '../../../components/InputField/MapField/MapField.component';
 
 export default function SensorForm(fieldId){
     const [navigate,setNavigate]=useState(false);
@@ -77,10 +77,10 @@ export default function SensorForm(fieldId){
                                 required
                             />                        
                         </div>
-                        
+{/*                         
                         <div className='mb-4 px-3 '>
                             <MapInputField lng = {lng} lat = {lat} setLat={setLat} setLng = {setLng}/>                     
-                        </div>
+                        </div> */}
                     
 
                     
